@@ -7,14 +7,16 @@ var debug = false;
         internalMkadPrice : 250,
         aroundMkadPrice: 350,
         farMkadPrice: 500,
-        farMkadKmPrice: 5
+        farMkadKmPrice: 5,
+        dorohovPrice: 500
     }
 
     var maxim = {
         internalMkadPrice: 150,
         aroundMkadPrice: 250,
         farMkadPrice: 300,
-        farMkadKmPrice: 0
+        farMkadKmPrice: 0,
+        dorohovPrice: 300
     }
 
     var currentDriver;
@@ -56,16 +58,19 @@ if (debug) console.log('Стоимость внутри МКАД: ' + internalMk
     var aroundMkadCost = Number(currentDriver.aroundMkadPrice) * Number(aroundMkadCount);
 if (debug) console.log('Стоимость в пределах 20 км от МКАД: ' + aroundMkadCost);
 
-    var farMkadOneCost = Number(currentDriver.farMkadPrice) * Number((farMkadOne > 0 ? 1 : 0)) + Number(currentDriver.farMkadKmPrice) * Number(farMkadOne);
+    var farMkadOneCost = Number(currentDriver.farMkadPrice) * Number((farMkadOne > 0 ? 1 : 0)) + Number(currentDriver.farMkadKmPrice) * Number(farMkadOne) * 2;
 if (debug) console.log('Стоимость первой точки: ' + farMkadOneCost);
 
-   var farMkadTwoCost = Number(currentDriver.farMkadPrice) * Number((farMkadTwo > 0 ? 1 : 0)) + Number(currentDriver.farMkadKmPrice) * Number(farMkadTwo);
+   var farMkadTwoCost = Number(currentDriver.farMkadPrice) * Number((farMkadTwo > 0 ? 1 : 0)) + Number(currentDriver.farMkadKmPrice) * Number(farMkadTwo) * 2;
 if (debug) console.log('Стоимость второй точки: ' + farMkadTwoCost);
 
-   var farMkadThreeCost = Number(currentDriver.farMkadPrice) * Number((farMkadThree > 0 ? 1 : 0)) + Number(currentDriver.farMkadKmPrice) * Number(farMkadThree);
+   var farMkadThreeCost = Number(currentDriver.farMkadPrice) * Number((farMkadThree > 0 ? 1 : 0)) + Number(currentDriver.farMkadKmPrice) * Number(farMkadThree) * 2;
 if (debug) console.log('Стоимость третьей точки: ' + farMkadThreeCost);
 
-    var totalValue = internalMkadCost + aroundMkadCost + farMkadOneCost + farMkadTwoCost + farMkadThreeCost;
+    var dorohovCost = currentDriver.dorohovPrice * Number(document.getElementById('dorohov').checked);
+if (debug) console.log('Стоимость доставки на Дорохова: ' + dorohovCost);
+
+    var totalValue = internalMkadCost + aroundMkadCost + farMkadOneCost + farMkadTwoCost + farMkadThreeCost + dorohovCost;
 if (debug) console.log('Итого: ' + totalValue);
 
     // calculations complete, printing results.
@@ -77,6 +82,7 @@ if (debug) console.log('Итого: ' + totalValue);
     'Стоимость первой точки: ' + farMkadOneCost + '\n' + 
     'Стоимость второй точки: ' + farMkadTwoCost + '\n' + 
     'Стоимость третьей точки: ' + farMkadThreeCost + '\n' + 
+    'Стоимость доставки на Генерала Дорохова 18: ' + dorohovCost + '\n' +
     '=====' + '\n' + 'ИТОГО: ' + totalValue;
 }
 

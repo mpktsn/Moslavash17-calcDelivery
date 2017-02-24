@@ -93,4 +93,5 @@ function reset() {
     document.getElementById('far-mkad-1').value = '';
     document.getElementById('far-mkad-2').value = '';
     document.getElementById('far-mkad-3').value = '';
+    document.getElementById('dorohov').checked = false;
 }

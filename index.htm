@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h2>Расчет стоимости доставки</h2>
+        <hr>
+        <span>Кому считаем?</span>
+        <select id="driver-selector">
+        <option value="perch">Перч</option>
+        <option value="maxim">Максим</option>
+        </select><br>
+        <span>Количество точек внутри МКАД:</span>
+        <input type="text" size="5" id="internal-mkad"><br>
+        <span>Количество точек в пределах 20 км от МКАД:</span>
+        <input type="text" size="5" id="around-mkad"><br>
+        <h3>Точки в пределах более 20 км от МКАД</h3>
+        <span class="span-far-mkad">Первая точка, км от МКАД:</span>
+        <input type="text" size="5" id="far-mkad-1"><br>
+        <span class="span-far-mkad">Вторая точка, км от МКАД:</span>
+        <input type="text" size="5" id="far-mkad-2"><br>
+        <span class="span-far-mkad">Третья точка, км от МКАД:</span>
+        <input type="text" size="5" id="far-mkad-3"><br>
+        <button class="button" onclick="calculate()">Рассчитать</button>
+        <button class="button" onclick="reset()">Очистить</button>
+        <script src="script.js"></script><br>
+        <pre id="js-results"></pre>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+h2, p, span, h3 {
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.span-far-mkad {
+    padding-top: 3px;
+    display: inline-block;
+    width: 230px;
+}
+
+input {
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.button {
+    margin-top: 5px;
+    background-color: #fff;
+    width: 120px;
+    height: 30px;
+    border-width: 1px solid #999;
+    border-radius: 5px;
+}
+
+#js-results {
+    margin-top: 10px;
+}
